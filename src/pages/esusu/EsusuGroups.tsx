@@ -1,21 +1,17 @@
 import React, { ReactChild, ReactNode } from "react";
 import Button from "../components/Button";
 import Web3 from 'web3'
+import { flattenDiagnosticMessageText } from "typescript";
 
 
 
 function EsusuGroups(){
 
-    function web3Caller(){
-
-        var web3 = new Web3()
-        console.log(Web3.givenProvider.isMetaMask, 'web 3 is consoled')
-    }
 
     return(
             <div className='esusu-groups'>
                <div className='esusu-group-status'>
-                    <div className='esusu-status-text'>pedning</div>
+                    <div className='esusu-status-text'>pending</div>
                 </div>
                 <div className="flex">
                     <div className='esusu-group-symbol'>
@@ -53,7 +49,6 @@ function EsusuGroups(){
                     <div className="esusu-group-join-button">
                         <Button
                             type='secondary'
-                            onClick={() =>{ web3Caller()}}
                         >
                             Join
                         </Button>
@@ -63,6 +58,6 @@ function EsusuGroups(){
             </div>
             
     )
-
 }
 export default EsusuGroups;
+

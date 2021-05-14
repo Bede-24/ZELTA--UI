@@ -1,11 +1,15 @@
-import React, { ReactChild, ReactNode } from "react";
+import React, { ReactChild, ReactNode, useState } from "react";
 import Button from "../components/Button";
-import ToolTip from '../components/Tooltip'
 import searchLogo from '../../images/search.svg'
 import plusCircle from '../../images/pluscircle.svg'
 import Input from '../components/Input'
+import Modal from '../components/Modal'
+import CreateEsusuGroup from './CreateGroup'
+import { createTextSpan } from "typescript";
 
 function SearchTab(){
+
+    const [visible, setVisible ] = useState(false)
 
     return(
             <div className='search-tab flex  justify-space-around'>
@@ -25,19 +29,11 @@ function SearchTab(){
                     </select>
                 </div>
                 <div className="mt1">
-                    <div className='create-esusu-group-button'>
-                        <Button>
-                            <div className='create-esusu-group-button'>
-                                <span>
-                                    <img src={plusCircle} alt="search" className='plus-img'/>
-                                </span>
-                                Create Esusu Group
-                            </div>
-                        </Button>
-                    </div>
-                </div>  
+                    < CreateEsusuGroup />
+                </div> 
             </div>
-    )
+)
+
 
 }
 export default SearchTab;

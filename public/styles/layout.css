@@ -41,12 +41,11 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-   
-  position: absolute;
+
   width: 140px;
   font-family: Fira Sans;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
 }
   
   .top-connection-lg {
@@ -55,7 +54,7 @@
     align-items: center;
     border-radius: 30px;
     background: linear-gradient(333.6deg, #2042B8, 53.9%, #FF6600 157.96%);
-    padding:2px;
+    padding:1px;
     margin-bottom: 20px;
   }
 
@@ -63,7 +62,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    padding: 10px;
     background-color: var(--primaryColor);
     border-radius: 30px;
     cursor: pointer;
@@ -75,25 +74,24 @@
     column-gap: 10px;
     background-color: var(--primaryColor);
     border-radius: 30px;
-    padding:10px;
-    font-size: 12px;
+    padding:5px 10px;
     cursor: pointer;
+    width: auto;
   }
 
-  .top-connection-lg i.fa-circle {
+  .top-connection-lg div.fa-circle {
     color:#34D530;
-    font-size: 8px;
+    font-size: 6px;
   }
+  .top-connection-lg div.fa-chevron-down{
+    color: #868686;
+    font-size: 10px;
 
-  .connect-wallet-text{
-    
-    font-family: Fira Mono;
+  }
+  .connect-wallet-text{ 
+    font-family: 'Fira Sans', sans-serif;
     font-style: normal;
-    font-weight: normal;
-    font-size: 7px;
-
-    
-    
+    font-weight: 100;
+    font-size: 8px;
     color: #080808;
-
   }

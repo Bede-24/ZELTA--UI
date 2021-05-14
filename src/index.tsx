@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 let store = undefined;
 
 reduxstore()
-  .then(value => {
+  .then((value: any) => {
 
     store = value;
 

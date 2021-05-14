@@ -1,11 +1,19 @@
-import React, { ReactChild, ReactNode } from "react";
+import React, { ReactChild, ReactNode, useEffect } from "react";
 import Layout from '../components/layout/Layout'
 import TopBar from '../esusu/TopBar'
 import Monies from './EsusuMonies'
 import SearchTab from './SearchTab'
 import EsusuGroups from './EsusuGroups'
+import getEsusuCycles  from '../../methods/redux/actions/esusu/get-esusu-cycles'
+import { useDispatch } from "react-redux";
 
 function Personal(){
+
+    const dispatch = useDispatch();
+
+    useEffect(() =>{
+        dispatch(getEsusuCycles())
+    })
 
     return(
         <Layout> 

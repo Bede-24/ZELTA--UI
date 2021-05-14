@@ -71,7 +71,22 @@ html {
 .w2 { width: 20vw; }
 .w3 { width: 30vw; }
 .w5 { width: 50px; }
+.w6 { width: 60px; }
 .w7 { width: 70vw; }
 
 .inline { display: inline; } 
 .capitalize { text-transform: capitalize;}
+
+.load-wrapper {
+        position: fixed;
+        z-index: 4;
+        width: 100%;
+        top:0;
+        left:0;
+        height: 100%;
+        background-color: var(--backgroundColor);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }

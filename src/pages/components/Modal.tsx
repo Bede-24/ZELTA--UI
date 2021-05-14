@@ -1,25 +1,78 @@
-import React from 'react'
-import Button from './Button';
+import { CloseCircleOutlined } from '@ant-design/icons';
+import React, { useEffect, useState, useRef, ReactNode } from 'react';
 
-function Modal(props : any){
+type Props = {
+    visible: boolean;
+    onCancel: Function;
+    title?: string;
+    children: ReactNode;
+};
 
+function Modal(props: Props) {
+    const modalbody = useRef<HTMLDivElement>(null);
 
-  return(
-    <div className={`modal ${props.show ? 'show' : ''}`} onClick={props.onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <h4 className="modal-title">{props.title}</h4>
+    const [open, setopen] = useState('');
+    const [show, setshow] = useState('');
+    const [content, setcontent] = useState('');
+
+    function closeModal(e: any) {
+        if (show.length > 0 && modalbody.current && !modalbody.current.contains(e.target)) {
+            props.onCancel();
+        }
+    }
+
+    useEffect(() => {
+        if (props.visible) {
+            setopen('open');
+            setTimeout(() => {
+                setshow('show');
+                setcontent('open');
+            }, 100);
+        } else {
+            setcontent('');
+            setshow('');
+            setTimeout(() => {
+                setopen('');
+            }, 500);
+        }
+        // eslint-disable-lint
+    }, [props.visible]);
+
+    useEffect(() => {
+        if (content.length > 0) {
+            document.body.classList.add('body-no-overflow');
+        } else {
+            document.body.classList.remove('body-no-overflow');
+        }
+    });
+
+    useEffect(() => {
+        document.addEventListener('mousedown', closeModal);
+        return () => {
+            document.removeEventListener('mousedown', closeModal);
+        };
+    });
+
+    return (
+        <div className={`modal-styles ${open}`}>
+            <div className={`modal-body ${show}`}>
+                <div>
+                    <div className={`modal-content ${content}`} ref={modalbody}>
+                        <div className="flex justify-space-between align-center">
+                            <div className="title" style={{ fontWeight: 500 }}>
+                                {props.title}
+                            </div>
+                            <div onClick={() => props.onCancel()} className="close-modal">
+                                <CloseCircleOutlined />
+                            </div>
+                        </div>
+                        <hr />
+                        <div>{props.children}</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="modal-body">
-          {props.children}
-        </div>
-        <div className="modal-footer">
-          <Button onClick={props.onClose} >Close</Button>
-        </div>
-      </div>
-    </div>
-  )
-
+    );
 }
 
 export default Modal;

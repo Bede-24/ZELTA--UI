@@ -1,11 +1,18 @@
-import React, { ReactChild, ReactNode } from "react";
+import React, { ReactChild, ReactNode, useEffect } from "react";
 import ToolTip from "../components/Tooltip";
-import Botton from '../components/Button'
-import Button from "../components/Button";
 import DaiLogo from '../../images/DaiLogo.svg'
-
+import FlexibleDepositButton from './PersonalFlexibleDeposit'
+import FlexibleWithdrawalButton from './PersonalFlexibleWithdrawal'
+import XendFinance from '../../methods/init'
 
 function SavingsTab(){
+
+    const sdkinstance = new XendFinance();
+    async function wait(){
+        const res = await sdkinstance.esusu.getDaiBalance();
+        console.log(res, ';res')
+    }
+    wait();
 
     return(
         <div className="personal-savings-tab">
@@ -47,95 +54,10 @@ function SavingsTab(){
                 </div>
             </div>
             <div className='share-balance justify-space-around flex mt3'>
-                <div >
-                    <Button 
-                        block
-                    >
-                         {' Save '} 
-                    </Button>
-                </div>
-                <div>
-                    <Button 
-                          type="secondary" 
-                    >
-                        Withdraw
-                    </Button>
-                </div>
+                <FlexibleDepositButton />
+                <FlexibleWithdrawalButton />
             </div>
         </div>
     )
 }
 export default SavingsTab;
-
-//     return(
-//         <div className="personal-savings-tab ml2 mr2 mt2 mb2">
-
-//             <div className='share-balance flex ml5 mr5'>
-//                 <div className='flex'> 
-//                     <span><img src={DaiLogo} alt="Personal Icon"/></span> 
-//                     <div className="bold">
-                        
-//                         DAI 
-//                     </div>
-                   
-//                    <div  className='dai-label'>          
-//                         <div className='label'>
-//                             <br />
-//                             DAI Stablecoin
-//                         </div>
-//                    </div>
-                   
-//                 </div>
-//                 <div className='ml5'>
-//                     <div className="label">
-//                         Est. APY <ToolTip content="This cycle currently has just one member." />
-//                     </div>
-//                     <br />
-//                     <div className='bold'>
-//                         Up to 23.0324%
-//                     </div>
-//                 </div>
-//             </div>
-//             <div className='share-balance flex mt5 ml5 mr5'>
-//                 <div >
-//                     <div className="label">
-//                         Wallet Balance <ToolTip content="This cycle currently has just one member." />
-//                     </div>
-//                     <br />
-//                     <div className='bold'>
-//                         0.0000 DAI
-//                     </div>
-//                 </div>
-//                 <div className='ml5'>
-//                     <div className="label">
-//                         Savings Balance <ToolTip content="This cycle currently has just one member." />
-//                     </div>
-//                     <br />
-//                     <div className='bold'>
-//                         0.0000 BUSD
-//                     </div>
-//                 </div>
-//             </div>
-
-//             <div className='share-balance flex mt5 ml5 mr5'>
-//                 <div >
-//                     <Button 
-//                         block
-//                     >
-//                         Save
-//                     </Button>
-//                 </div>
-//                 <div className='ml5'>
-//                     <Button 
-//                         block
-//                         type='secondary'
-//                     >
-//                         Withdraw
-//                     </Button>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-
-// }
-// export default PersonalMonies;

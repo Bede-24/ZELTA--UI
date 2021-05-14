@@ -4,6 +4,7 @@ import ToolTip from '../components/Tooltip'
 import searchLogo from '../../images/search.svg'
 import plusCircle from '../../images/pluscircle.svg'
 import Input from '../components/Input'
+import CreateGroup from './CreateGroup'
 
 function SearchTab(){
 
@@ -25,16 +26,7 @@ function SearchTab(){
                     </select>
                 </div>
                 <div className="mt1">
-                    <div className='create-esusu-group-button'>
-                        <Button>
-                            <div className='create-esusu-group-button'>
-                                <span>
-                                    <img src={plusCircle} alt="search" className='plus-img'/>
-                                </span>
-                                Create Cooporative Group
-                            </div>
-                        </Button>
-                    </div>
+                    <CreateGroup />
                 </div>  
             </div>
     )

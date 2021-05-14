@@ -1,13 +1,13 @@
 .esusu-protocol-select{ 
     background-color: #F6F6F6;
     border-radius: 10px;
+    padding: 0px 5px 5px 2px;
     width: fit-content;
     height: fit-content;
-    margin-left: -50px;
     
 }
 .esusu-xend-logo{
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .esusu-monies{
