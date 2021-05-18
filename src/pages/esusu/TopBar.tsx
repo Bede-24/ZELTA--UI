@@ -3,8 +3,11 @@ import ToolTip from "../components/Tooltip";
 import XendLogo from '../../images/Xendfinance-Logo.svg'
 import Button from "../components/Button";
 import WalletConnect from '../components/ConnectWallet'
+import { useHistory } from "react-router";
 
 function TopBar(){
+
+    const history = useHistory();
 
     return(
             <div className="layout-top">
@@ -24,15 +27,15 @@ function TopBar(){
                 <div className="flex pt1" >
                     <div className='ml1'>
                         <Button
-                            type='secondary'  
+                            type='secondary' 
+                            onClick={() => history.push('/MyEsusuGroups')} 
                         >
                             My Esusu Unions
                         </Button>
                     </div>
                     <div className='ml1'>
                         <Button
-                            type='secondary'
-                        
+                            type='secondary'  
                         >
                             View Contributions
                         </Button>

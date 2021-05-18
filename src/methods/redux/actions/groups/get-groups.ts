@@ -1,14 +1,10 @@
 import { notify } from '../../../../pages/components/Notifier';
 import randomgen from '../../../random-gen';
 import loader from '../add-to-que';
-import XendFinance from '../../../init'
-
-const sdkInstance = new XendFinance();
-
+import {GroupInstance} from '../../../../Xendfinance'
 
 // this action gets esusu groups
 export const getEsusuGroup = () => {
-    
     return async (dispatch: Function) => {
 
         const id = randomgen();
@@ -16,8 +12,7 @@ export const getEsusuGroup = () => {
         const groupIdentifier = 'esusu'
 
         try{
-            
-            const res = sdkInstance.group.getGroup(1);
+            // const res = sdkInstance().group.getGroup(1);
             dispatch(loader(id));
         }
         catch(err){
@@ -27,7 +22,7 @@ export const getEsusuGroup = () => {
     }
 }
 
-// this action fetches cooporative cycles
+// this action fetches cooporative Groups
 export const getCooporativeGroup = () => {
     return async (dispatch: Function) => {
 

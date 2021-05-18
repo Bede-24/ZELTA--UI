@@ -1,22 +1,18 @@
 import { notify } from '../../../../pages/components/Notifier';
 import randomgen from '../../../random-gen';
 import loader from '../add-to-que';
-import XendFinance from '../../../init'
-
-const sdkInstance = new XendFinance();
+import {PersonalInstance} from '../../../../Xendfinance'
 
 
 // this action gets esusu groups
  function flexibleDeposit(amount : any){
-    
     return async (dispatch: Function) => {
 
         const id = randomgen();
         dispatch(loader(id));
 
         try{
-            
-            const res = await sdkInstance.individual.flexibleDeposit(amount);
+            const res = await PersonalInstance().flexibleDeposit(amount);
             console.log(res, 'res is consled')
             dispatch(loader(id));
         }

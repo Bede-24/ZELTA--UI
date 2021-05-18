@@ -1,10 +1,9 @@
 import { notify } from '../../../../pages/components/Notifier';
 import randomgen from '../../../random-gen';
 import loader from '../add-to-que';
-import XendFinance from '../../../init'
+import {GroupInstance} from '../../../../Xendfinance'
 
 
-const sdkInstance = new XendFinance();
 
 //this action creates esusu groups
 export const createEsusuGroup = (groupName: string, groupSymbol: string) => {
@@ -17,8 +16,8 @@ export const createEsusuGroup = (groupName: string, groupSymbol: string) => {
 
         try{
             
-            const res = await sdkInstance.group.createGroup(groupName, groupSymbol, groupIdentifier)
-            console.log(res, 'create group res......')
+            // const res = await sdkInstance().group.createGroup(groupName, groupSymbol, groupIdentifier)
+            // console.log(res, 'create group res......')
             dispatch(loader(id));
         }
         catch(err){
@@ -37,8 +36,8 @@ export const createCooporativeGroup = (groupName: string, groupSymbol: string) =
         const groupIdentifier = 'cooporative'
 
         try{
-            const res = await sdkInstance.group.createGroup(groupName, groupSymbol, groupIdentifier)
-            console.log(res, 'create group res......')
+            // const res = await sdkInstance().group.createGroup(groupName, groupSymbol, groupIdentifier)
+            // console.log(res, 'create group res......')
             dispatch(loader(id));
         }
         catch(err){

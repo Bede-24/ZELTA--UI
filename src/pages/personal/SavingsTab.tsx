@@ -3,14 +3,14 @@ import ToolTip from "../components/Tooltip";
 import DaiLogo from '../../images/DaiLogo.svg'
 import FlexibleDepositButton from './PersonalFlexibleDeposit'
 import FlexibleWithdrawalButton from './PersonalFlexibleWithdrawal'
-import XendFinance from '../../methods/init'
+import {PersonalInstance} from '../../Xendfinance'
 
 function SavingsTab(){
 
-    const sdkinstance = new XendFinance();
+   
     async function wait(){
-        const res = await sdkinstance.esusu.getDaiBalance();
-        console.log(res, ';res')
+        // const res = await sdkInstance().esusu.getDaiBalance();
+        // console.log(res, ';res')
     }
     wait();
 

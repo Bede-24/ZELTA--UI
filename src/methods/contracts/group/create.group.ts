@@ -1,10 +1,7 @@
 
 import serializedSignedTransaction from "../../utils/sendSignedTransaction";
 import createContract from "../create.contract";
-import { ESUSU } from '../addresses/localhost';
 import EsusuService from '../abis/EsusuService.json';
-import { esusuGroupMarker } from "../esusu-group-identifier";
-import { cooperatviGroupMarker } from "../cooporative-group-identifier";
 
 
 type Args = {
@@ -12,7 +9,6 @@ type Args = {
   provider: string
   groupName: string
   groupSymbol: string
-  groupIdentifier : string
 }
 
 /**
@@ -21,25 +17,18 @@ type Args = {
  * @param args 
  */
 
-export default async function (args: Args) {
+export default async function (args: Args, addresses: Addresses) {
 
-  let { privateKey, provider, groupName, groupSymbol, groupIdentifier } = args;
+  const { privateKey, provider, groupName, groupSymbol } = args;
 
   try {
 
-    if(groupIdentifier == 'esusu'){
-      groupName = esusuGroupMarker(groupName);
-    }
-    else if(groupIdentifier == 'cooporative'){
-        groupName =  cooperatviGroupMarker(groupName);
-    }
-   
     // create the data and encode abi
-    const contract = await createContract(provider, EsusuService, ESUSU.ESUSU_SERVICE);
+    const contract = await createContract(provider, EsusuService, addresses.ESUSU_SERVICE);
 
     const data = await contract.methods.CreateGroup(groupName, groupSymbol).encodeABI();
 
-    let signedTx = await serializedSignedTransaction(data, ESUSU.ESUSU_SERVICE, privateKey, provider)
+    let signedTx = await serializedSignedTransaction(data, addresses.ESUSU_SERVICE, privateKey, provider)
 
     return {
       status: true,

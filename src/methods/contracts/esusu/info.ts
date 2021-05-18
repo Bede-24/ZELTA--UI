@@ -1,15 +1,14 @@
 
 import createContract from "../create.contract";
-import CyclesAbi from '../abis/Cycles.json';
-import { COOPERATIVE, ESUSU } from '../addresses/localhost';
+import EsusuService from '../abis/EsusuService.json';
 
-export default async function (esusuId: number, provider: string) {
+export default async function (esusuId: number, provider: string, addresses: Addresses) {
   try {
 
-    const contract = await createContract(provider, CyclesAbi.abi, COOPERATIVE.CYCLES);
+    const contract = await createContract(provider, EsusuService, addresses.ESUSU_SERVICE);
 
-    const data = await contract.methods.getCyclesLength().call();
-    console.log(data)
+    const data = await contract.methods.GetEsusuCycle(esusuId).call();
+
     return data
 
   } catch (error) {

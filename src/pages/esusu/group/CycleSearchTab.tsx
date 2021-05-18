@@ -1,10 +1,10 @@
 import React, { ReactChild, ReactNode, useState } from "react";
-import searchLogo from '../../images/search.svg'
-import Input from '../components/Input'
-import CreateEsusuGroup from './CreateGroup'
+import searchLogo from '../../../images/search.svg'
+import Input from '../../components/Input'
+import CreateEsusuCycle from './CreateCycle'
 
 
-function SearchTab(){
+function CycleSearchTab(){
 
     return(
             <div className='search-tab flex  justify-space-around'>
@@ -12,7 +12,7 @@ function SearchTab(){
                     <div className="search-bar">
                         <img src={searchLogo} alt="search" className='search-img'/>
                         <Input 
-                            placeholder='Search Esusu Groups'
+                            placeholder='Search Cycles...'
                     />
                    
                     </div>
@@ -24,11 +24,9 @@ function SearchTab(){
                     </select>
                 </div>
                 <div className="mt1">
-                    < CreateEsusuGroup />
+                    < CreateEsusuCycle />
                 </div> 
             </div>
-)
-
-
+    )
 }
-export default SearchTab;
+export default CycleSearchTab;

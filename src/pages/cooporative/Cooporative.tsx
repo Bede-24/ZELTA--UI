@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout'
 import TopBar from './TopBar'
 import Monies from './CooporativeMonies'
 import SearchTab from './SearchTab'
-import CooporativeGroup from './CooporativeGroups'
+import CooporativeGroup from './CooporativeCycles'
 
 function Cooporative(){
 

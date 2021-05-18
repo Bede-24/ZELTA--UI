@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout'
 import TopBar from '../esusu/TopBar'
 import Monies from './EsusuMonies'
 import SearchTab from './SearchTab'
-import EsusuGroups from './EsusuGroups'
+import EsusuGroups from './EsusuCycles'
 import getEsusuCycles  from '../../methods/redux/actions/esusu/get-esusu-cycles'
 import { useDispatch } from "react-redux";
 
