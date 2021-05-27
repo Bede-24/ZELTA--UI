@@ -1,34 +1,49 @@
-import React, { ReactChild, ReactNode, useEffect } from "react";
+import React, { ReactChild, ReactNode, useEffect, useState } from "react";
 import ToolTip from "../components/Tooltip";
 import DaiLogo from '../../images/DaiLogo.svg'
 import FlexibleDepositButton from './PersonalFlexibleDeposit'
 import FlexibleWithdrawalButton from './PersonalFlexibleWithdrawal'
 import {PersonalInstance} from '../../Xendfinance'
+import AmountsComplete from "../components/AmountsComplete";
+import commas from "../components/commas";
+import _const from "../../methods/_const";
 
 function SavingsTab(){
 
+
+    const [walletBalnce, setbalance] = useState(0)
+    const [APY, setAPY] = useState({})
    
-    async function wait(){
-        // const res = await sdkInstance().esusu.getDaiBalance();
-        // console.log(res, ';res')
+    async function setbalanceAndAPY(){
+
+        const balance =  await PersonalInstance().walletBalance();
+        const APY = await PersonalInstance().fixedInfo()
+
+        setbalance(Number(balance))
+        setAPY(APY);
     }
-    wait();
+    
+    useEffect(() => {
+        setbalanceAndAPY()
+    },[])
+
+    console.log(walletBalnce, APY)
 
     return(
         <div className="personal-savings-tab">
             <div className='share-balance flex  justify-space-around '>
                 <div className='flex mt3' style={{marginLeft : '-20px'}}> 
                     <span><img src={DaiLogo} alt="Personal Icon"/></span> 
-                    <div className="dai-label">DAI</div>
+                    <div className="dai-label">BUSD</div>
                     <div  className='dai-stable-coin'>
                         <br />
-                        DAI Stablecoin
+                        BUSD stablecoin
                     </div>
                    
                 </div>
                 <div className="mt3">
                     <div className="savings-tab-label flex">
-                       <div className="mr1">Est. APY </div><ToolTip content="This cycle currently has just one member." />
+                       <div className="mr1">Est. APY </div><ToolTip content="This is the estimated profit you will make." />
                     </div>
                     <div className='savings-tab-values'>
                         Up to 23.0324%
@@ -38,20 +53,15 @@ function SavingsTab(){
             <div className='share-balance flex  justify-space-around'>
                 <div className="mt2">
                     <div className="savings-tab-label flex">
-                        <div className='mr1'>Wallet Balance</div> <ToolTip content="This cycle currently has just one member." />
+                        <div className='mr1'>Wallet Balance</div> <ToolTip content="This is your total wallet balance." />
                     </div>
                     <div className='savings-tab-values'>
-                        0.000 DAI
+                        <span>
+                            <AmountsComplete completeAmount={walletBalnce}>{commas(walletBalnce)}</AmountsComplete>{' '}{ _const.CURRENCY}
+                        </span>
                     </div>
                 </div>
-                <div className="mt2">
-                    <div className="savings-tab-label">
-                        Savings Balance
-                    </div>
-                    <div className='savings-tab-values'>
-                        0.8999 BUSD
-                    </div>
-                </div>
+                <div className="w2"></div>
             </div>
             <div className='share-balance justify-space-around flex mt3'>
                 <FlexibleDepositButton />

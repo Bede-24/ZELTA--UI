@@ -18,7 +18,7 @@ function Routes(){
                 <Route exact path="/MyEsusuGroups" component={MyEsusuGroups} />
                 <Route exact path="/MyCooporativeGroups" component={MyCooporativeGroups} />
                 <Route exact path="/MyCooporativeCycles" component={MyCooporativeCycles} />
-                <Route exact path="/MyEsusuCycles" component={MyEsusuCycles} />
+                <Route exact path="/MyEsusuCycles/:id" component={MyEsusuCycles} />
             </Switch>
         </BrowserRouter>
     )

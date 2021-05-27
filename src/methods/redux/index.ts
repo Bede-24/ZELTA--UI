@@ -9,12 +9,12 @@ import ConnectWalletReducer from './reducers/ConnectWalletReducer';
 import activity from './reducers/activity'
 
 const reducers = combineReducers({
-    // esusu,
-    // groups,
-    // cooporative,
-     individual,
-     ConnectWalletReducer,
-     activity,
+    esusu,
+    groups,
+    cooporative,
+    individual,
+    ConnectWalletReducer,
+    activity,
 });
 
 

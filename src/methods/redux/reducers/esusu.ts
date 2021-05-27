@@ -1,7 +1,9 @@
 import _const from '../../_const';
 
 const init = {
-    count: 0,
+    esusucycles: [],
+    contributions : [],
+    IsMember : false
 };
 
 type Action = {
@@ -11,13 +13,19 @@ type Action = {
 };
 
 function esusuReducer(state = init, action: Action) {
-    // switch (action.type) {
-    //     case _const.WALLET_CREATED:
-    //         return { ...state, count: action.payload };
+    switch (action.type) {
+        case _const.ALL_ESUSU_CYCLES_BY_GROUPID:
+            return { ...state, esusucycles: action.payload };
+
+        case _const.IS_ESUSU_MEMBER:
+            return { ...state, IsMember: action.payload };
+
+        case _const.ESUSU_CONTRIBUTIONS:
+            return { ...state, contributions: action.payload };
             
-    //     default:
-    //         return state;
-    // }
+        default:
+            return state;
+    }
 }
 
 export default esusuReducer;

@@ -92,8 +92,12 @@
 }
 .esusu-groups-container{
     margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
+    margin-left: 10px;
+}
+.esusu-group-name{
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 0px 0px 0px;
 }
 .MyEsusuGroup{
     
@@ -105,8 +109,8 @@
 .esusu-group-info{
     display: flex;
     margin: 10px ;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 400;
 }
 .open-cycles-button{
     margin-left: 15vw;

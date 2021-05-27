@@ -6,6 +6,7 @@ import { XendfinanceInstance } from '../../../Xendfinance'
 import { useDispatch } from "react-redux";
 import { type } from "node:os";
 import _const from "../../../methods/_const";
+import XendFinance from "@xend-finance/web-sdk";
 
 
 type Props = {
@@ -22,8 +23,13 @@ function Layout(props: Props){
 
     useEffect(() =>{
         async function createWallet(){
-            const wallet = await XendfinanceInstance().retrieveWallet();
+           
+            const currency =  XendfinanceInstance().currency;
+            dispatch({type: _const.CURRENCY, payload: currency})
+            const shareCurrency =  XendfinanceInstance().shareCurrency
+            dispatch({type: _const.SHARE_CURRENCY, payload: shareCurrency})
 
+            const wallet = await XendfinanceInstance().retrieveWallet();
             const arrayOfResProperties = Object.keys(wallet)
             if (arrayOfResProperties.includes('address')) {
                 dispatch({type : _const.ADDRESS, payload : wallet.address})

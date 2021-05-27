@@ -4,16 +4,20 @@ import TopBar from '../esusu/TopBar'
 import Monies from './EsusuMonies'
 import SearchTab from './SearchTab'
 import EsusuGroups from './EsusuCycles'
-import getEsusuCycles  from '../../methods/redux/actions/esusu/get-esusu-cycles'
-import { useDispatch } from "react-redux";
+import getEsusuCycles  from '../../methods/redux/actions/esusu/get-contributions'
+import { useDispatch, useSelector } from "react-redux";
+import EmptyList from "../components/EmptyList";
 
-function Personal(){
+function Esusu(){
 
     const dispatch = useDispatch();
+    
+    const { contributions } = useSelector((state : any) => state.esusu)
 
     useEffect(() =>{
         dispatch(getEsusuCycles())
-    })
+    },[])
+
 
     return(
         <Layout> 
@@ -21,12 +25,14 @@ function Personal(){
                 <TopBar />
                 <Monies />
                 <SearchTab />
-                <EsusuGroups />
-                <EsusuGroups />
-                <EsusuGroups />
+                {contributions.length === 0 && <EmptyList message='No Cycles' />}
+                {contributions.length > 0 && (
+                    contributions.map((cycle:any, i:any) => ( <EsusuGroups props={cycle} />) )
+                )}   
+                
             </div>    
         </Layout>
     )
 
 }
-export default Personal;
+export default Esusu;

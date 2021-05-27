@@ -6,6 +6,16 @@ function esusuGroupMarker(groupName: string) {
     return groupName + esusuGroupIdentity;
 }
 
+function esusuNameFilter(groupName : string){
+
+    const groupIdentifier = groupName.slice(groupName.length - 4); // get the last 4 characters
+    if (groupIdentifier === esusuGroupIdentity) {
+         groupName =  groupName.slice(0, -4) ;
+        return groupName;
+    }
+    else{ return 0 ;}
+}
+
 function esusuGroupsFilter(list: Array<any>) {
     const esusuGrp: Array<any> = [];
 
@@ -25,4 +35,4 @@ function esusuGroupsFilter(list: Array<any>) {
     return esusuGrp;
 }
 
-export { esusuGroupMarker, esusuGroupsFilter };
+export { esusuGroupMarker, esusuGroupsFilter, esusuNameFilter };

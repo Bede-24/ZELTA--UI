@@ -12,7 +12,7 @@ export default class Notifications extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            top: '-100px',
+            top: '10px',
             message: '',
             type: '',
         };
@@ -30,7 +30,7 @@ export default class Notifications extends React.Component {
             clearTimeout(this.timeout);
             this.setState(
                 {
-                    top: '-100px',
+                    top: '10px',
                     type: '',
                 },
                 () => {
@@ -54,7 +54,7 @@ export default class Notifications extends React.Component {
             () => {
                 this.timeout = setTimeout(() => {
                     this.setState({
-                        top: '-100px',
+                        top: '10px',
                     });
                 }, 6000);
             },

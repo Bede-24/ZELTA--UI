@@ -1,25 +1,28 @@
 import { notify } from '../../../../pages/components/Notifier';
 import randomgen from '../../../random-gen';
 import loader from '../add-to-que';
-import {EusuInstance} from '../../../../Xendfinance'
+import {EsusuInstance} from '../../../../Xendfinance'
+import _const from '../../../_const';
 
 // this action gets esusu groups
- function getEsusuCycles(){
+ function getEsusuCycles(groupId : any){
     
     return async (dispatch: Function) => {
 
         const id = randomgen();
         dispatch(loader(id));
-        const groupIdentifier = 'esusu'
 
         try{
+
+            let res = await EsusuInstance().cyclesInGroup(groupId);
+
+            console.log(res, groupId,'group ')
+                dispatch({type: _const.ALL_ESUSU_CYCLES_BY_GROUPID, payload:res});
             
-            // const res = await sdkInstance().esusu.esusuInformation(1)
-            // console.log(res, 'res is consled')
             dispatch(loader(id));
         }
         catch(err){
-            notify('error', 'Could not create group.')
+            // notify('error', 'Could not create group.')
             dispatch(loader(id));
         }
     }

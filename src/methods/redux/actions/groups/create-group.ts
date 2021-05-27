@@ -1,8 +1,10 @@
 import { notify } from '../../../../pages/components/Notifier';
 import randomgen from '../../../random-gen';
 import loader from '../add-to-que';
-import {GroupInstance} from '../../../../Xendfinance'
-
+import {EsusuInstance} from '../../../../Xendfinance'
+import { esusuGroupMarker, esusuGroupsFilter } from '../../../utils/esusu-group-identifier'
+import  { cooperatviGroupMarker, cooperativeGroupsFilter } from '../../../utils/cooporative-group-identifier'
+import Swal from 'sweetalert2'
 
 
 //this action creates esusu groups
@@ -15,13 +17,21 @@ export const createEsusuGroup = (groupName: string, groupSymbol: string) => {
         const groupIdentifier = 'esusu'
 
         try{
+
+            groupName = esusuGroupMarker(groupName)
             
-            // const res = await sdkInstance().group.createGroup(groupName, groupSymbol, groupIdentifier)
-            // console.log(res, 'create group res......')
+            const res = await EsusuInstance().createGroup(groupName, groupSymbol);
+            const arrayOpfProperties = Object.keys(res);
+            if(arrayOpfProperties.includes('status') && res.status){
+                console.log(res, 'create group res......')
+                Swal.fire('success', 'group created successfully.', 'success',)
+                
+            } else( Swal.fire('Error', 'something happened ', 'error' ) )
             dispatch(loader(id));
+          
         }
         catch(err){
-            notify('error', 'Could not create group.')
+            Swal.fire('Error', 'something happened ', 'error' )
             dispatch(loader(id));
         }
     }
@@ -33,15 +43,23 @@ export const createCooporativeGroup = (groupName: string, groupSymbol: string) =
 
         const id = randomgen();
         dispatch(loader(id));
-        const groupIdentifier = 'cooporative'
+        
 
         try{
-            // const res = await sdkInstance().group.createGroup(groupName, groupSymbol, groupIdentifier)
-            // console.log(res, 'create group res......')
+
+            groupName = cooperatviGroupMarker(groupName);
+            const res = await EsusuInstance().createGroup(groupName, groupSymbol);
+
+            const arrayOpfProperties = Object.keys(res);
+            if(arrayOpfProperties.includes('status') && res.status){
+                console.log(res, 'create group res......')
+                Swal.fire('success', 'deposit successful.', 'success',)
+                
+            } else( Swal.fire('Error', 'something happened ', 'error' ) )
             dispatch(loader(id));
         }
         catch(err){
-            notify('error', 'Could not create group.')
+            Swal.fire('Error', 'something happened ', 'error' )
             dispatch(loader(id));
         }
     }

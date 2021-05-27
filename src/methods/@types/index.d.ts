@@ -55,3 +55,25 @@ interface EsusuCycleData {
     startTimeInSeconds: number
     maxMembers: number
 }
+
+interface Window {
+    PROTOCOL_ADAPTER: any
+    GROUPS: any
+    CYCLES: any
+    PROTOCOL_SERVICE: any
+    ESUSU_SERVICE: any
+    ESUSU_STORAGE: any
+    ESUSU_ADAPTER: any
+    YEARN_GROUP: any
+    BUSD_TOKEN: any
+    APR: any
+    XEND_TOKEN: any
+    AGGREGATED_APR: any
+    INDIVIDUAL: any
+    GET_BUSD: any
+    CLIENT_RECORD: any
+    PORFOLIO: any
+    REWARDCONFIG: any
+    PROTOCOL_CURRENCY: any
+  }
+  

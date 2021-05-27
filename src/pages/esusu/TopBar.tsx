@@ -4,6 +4,7 @@ import XendLogo from '../../images/Xendfinance-Logo.svg'
 import Button from "../components/Button";
 import WalletConnect from '../components/ConnectWallet'
 import { useHistory } from "react-router";
+import SavingsProtocol from '../components/ProtocolSetterandGetter'
 
 function TopBar(){
 
@@ -13,7 +14,7 @@ function TopBar(){
             <div className="layout-top">
                 <div className="flex pt2 justify-space-between">
                     <div className='esusu-xend-logo'><img src={XendLogo} alt="Personal Icon"/></div>
-                    <div className='esusu-protocol-select'>
+                    {/* <div className='esusu-protocol-select'>
                         <div >
                             <span style={{fontSize:'9px'}}><ToolTip  content="This cycle currently has just one member." /></span>
                             <select style={{border:'0px', fontSize:' 8.79538px', color : '#969696', backgroundColor:'#F6F6F6'}}>
@@ -21,7 +22,8 @@ function TopBar(){
                                 <option value="">Fortube  16.85%</option>
                             </select>
                         </div>
-                    </div>
+                    </div> */}
+                    <SavingsProtocol />
                     <div className='mr2'><WalletConnect/></div>
                 </div>
                 <div className="flex pt1" >

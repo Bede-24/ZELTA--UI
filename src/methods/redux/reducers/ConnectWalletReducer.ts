@@ -9,6 +9,8 @@ const initialState = {
     address: '',
     wallet: [],
     walletCreated : false,
+    currency : '',
+    sharecurrency : '',
 };
 
 const ConnectWalletReducer = (state = initialState, action: Action) => {
@@ -21,6 +23,13 @@ const ConnectWalletReducer = (state = initialState, action: Action) => {
             
         case _const.ADDRESS:
             return {...state, address: action.payload}
+
+        case _const.CURRENCY:
+            return {...state, currency: action.payload}
+
+        case _const.SHARE_CURRENCY:
+            return {...state, sharecurrency: action.payload}
+
         default:
             return state;
     }

@@ -6,6 +6,19 @@ function cooperatviGroupMarker(groupName: string) {
     return groupName + cooperativeGroupIdentity;
 }
 
+
+
+function cooporativeNameFilter(groupName : string){
+
+    const groupIdentifier = groupName.slice(groupName.length - 4); // get the last 4 characters
+    if (groupIdentifier === cooperativeGroupIdentity) {
+         groupName =  groupName.slice(0, -4) ;
+        return groupName;
+    }
+    else{ return 0 ;}
+}
+
+
 function cooperativeGroupsFilter(list: Array<any>) {
     const cooperativeGrp: Array<any> = [];
 
@@ -32,4 +45,4 @@ function cooperativeGroupsFilter(list: Array<any>) {
     return cooperativeGrp;
 }
 
-export { cooperatviGroupMarker, cooperativeGroupsFilter };
+export { cooperatviGroupMarker,cooporativeNameFilter, cooperativeGroupsFilter };

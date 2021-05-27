@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactNode, useEffect } from "react";
+import React, { ReactChild, ReactNode, useEffect, useState } from "react";
 import ToolTip from '../components/Tooltip'
 import getflexibledepositrecordforcurrentuser from '../../methods/redux/actions/individual/get-flexible-deposit-record'
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import AmountsComplete from '../components/AmountsComplete'
 import commas from "../../methods/utils/commas";
 import _const from "../../methods/_const";
 import web3 from 'web3';
+import { fromBigVenusNumber } from "../../methods/utils/bignumber-converter";
 
 
 function PersonalMonies(){
@@ -13,12 +14,31 @@ function PersonalMonies(){
     const dispatch = useDispatch();
 
     const individualRecord = useSelector((state : any) => state.individual.individualRecord )
-    const { balance, derivativeWithdrawn, shareBalance, } = individualRecord;
+
+    const [records, setRecords] = useState({
+        totalBalance: 0,
+        shareBalance: 0,
+      });
 
 
     useEffect(() =>{
         dispatch(getflexibledepositrecordforcurrentuser())
     }, [])
+
+ 
+      useEffect(() => {
+        const recordsData = individualRecord;
+        if (recordsData !== undefined || null) {
+          setRecords({
+            totalBalance: recordsData.derivativeBalance,
+            shareBalance: fromBigVenusNumber(Number(recordsData.derivativeShareBalance)),
+          });
+        } else {
+          setRecords(records);
+        }
+    
+        // eslint-disable-next-line
+      }, [individualRecord]);
  
 
     return(
@@ -26,12 +46,11 @@ function PersonalMonies(){
             <div className='share-balance flex  justify-space-around'>
                 <div className="mt2">
                     <div className="monies-label flex">
-                        <div className="mr1">Balance + Interest</div> <ToolTip content="This cycle currently has just one member." />
+                        <div className="mr1">Personal Balance + Interest</div> <ToolTip content="This cycle currently has just one member." />
                     </div>
                     <div className='monies-values'>
                         <span>
-                            <AmountsComplete completeAmount={balance}>{commas(balance)}</AmountsComplete>{' '}
-                            VBUSD
+                            <AmountsComplete completeAmount={records.totalBalance}>{commas(records.totalBalance)}</AmountsComplete>{ _const.CURRENCY}
                         </span>
                     </div>
                 </div>
@@ -41,36 +60,19 @@ function PersonalMonies(){
                     </div>
                     <div className='monies-values'>
                         <span>
-                            <AmountsComplete completeAmount={shareBalance}>
-                                {commas(shareBalance)}
+                            <AmountsComplete completeAmount={records.shareBalance}>
+                                {commas(records.shareBalance)}
                                 {/* {commas(web3.utils.fromWei(sbalance))} */}
-                            </AmountsComplete>{' '}
-                            VBUSD
+                            </AmountsComplete>{_const.SHARE_CURRENCY}
+                            
                         </span>
                     </div>
                 </div>
                
             </div>
-            <div className='share-balance flex  justify-space-around'>
-                <div className="mt2">
-                    <div className="monies-label flex">
-                        <div className="mr1">Total Withdrawn</div> <ToolTip content="This cycle currently has just one member." />
-                    </div>
-                    <div className='monies-values'>
-                        <span>
-                            <AmountsComplete completeAmount={derivativeWithdrawn}>
-                                {commas(derivativeWithdrawn)}
-                                {/* {commas(web3.utils.fromWei(withdrawn))} */}
-                            </AmountsComplete>{' '}
-                            VBUSD
-                        </span>
-                    </div>
-                </div>
-                <div className="w3"></div>
-            </div>
+
         </div>
     )
 
 }
 export default PersonalMonies;
-
