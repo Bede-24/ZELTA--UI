@@ -24,6 +24,7 @@
     "@types/redux-thunk": "^2.1.0",
     "@xend-finance/web-sdk": "0.0.1-beta.4",
     "axios": "^0.27.2",
+    "cleave.js": "^1.6.0",
     "event-emitter": "^0.3.5",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
