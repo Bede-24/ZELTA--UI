@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@types/babel__core": "^7.1.14",
-    "@types/cleave.js": "^1.4.4",
+    "@types/cleave.js": "^1.4.6",
     "@types/event-emitter": "^0.3.3"
   }
 }
