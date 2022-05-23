@@ -6,6 +6,7 @@ import { cryptoAddressReturner } from '../../utils/currencies'
 import { useHistory } from 'react-router'
 import {ToastContainer,toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
+import getuserbalance from './get-user-balance'
 
 
 type Data = {
@@ -27,6 +28,7 @@ function stake(props : Data) {
         api.post(`/user/stake/${userId}`, data)
             .then((result: any) => {
                 toast.success(`${result.data.message}`)
+                dispatch(getuserbalance());
                 // dispatch({ type: _const.DEPOSIT_SUCCESSFUL, payload: true})
             })
             .catch((err: any ) => {

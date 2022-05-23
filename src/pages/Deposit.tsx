@@ -27,7 +27,7 @@ function FlexibleDeposit(){
          const data ={ amount : depositamount}
         dispatch(deposit(data));
         setdepositamount(0);
-        setvisible(false);
+        setSecondVisible(false);
     }
     async function copyAddress(e : any){
         // e.preventDefault();

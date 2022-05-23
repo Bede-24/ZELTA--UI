@@ -22,6 +22,7 @@ function FlexibleDeposit(){
         dispatch(stake(data));
         setamount(0);
         setvisible(false);
+        //
     }
 
     return(
