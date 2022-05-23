@@ -17,6 +17,7 @@
 }
 .navbar{
   background: var(--navBackgroundColor);
+  bottom: 0;
 }
 .navbar ul{
   margin: 0;

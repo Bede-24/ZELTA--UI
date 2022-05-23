@@ -1,37 +1,28 @@
+
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import esusu from './reducers/esusu';
-import individual from './reducers/individual';
-import groups from './reducers/groups';
-import cooporative from './reducers/cooporative';
-import ConnectWalletReducer from './reducers/ConnectWalletReducer';
-import activity from './reducers/activity'
+import _const from '../_const';
+import users from './reducers/users'
+import transaction from './reducers/transaction'
+import prices from './reducers/prices'
 
 const reducers = combineReducers({
-    esusu,
-    groups,
-    cooporative,
-    individual,
-    ConnectWalletReducer,
-    activity,
-});
+    users, transaction, prices,
+})
 
+async function reduxstore() {
+  let initstore: any = undefined;
 
-
-async function reduxStore() {
-    const initstore: any = undefined;
-
-    return createStore(
-        reducers,
-        initstore,
-        composeWithDevTools(
-            applyMiddleware(
-                thunk,
-                // saver
-            ),
-        ),
-    );
+  return createStore(
+    reducers,
+    initstore,
+    composeWithDevTools(
+      applyMiddleware(
+        thunk,
+        // saver
+      ),
+    )
+  )
 }
-
-export default reduxStore;
+export default reduxstore;
