@@ -46,6 +46,7 @@
     WITHDRAWAL_TRANSACTION_HISTORY : 'WITHDRAWAL_TRANSACTION_HISTORY',
    
     //prices
+    ZELTA_TOKEN_PRICE : "ZELTA_TOKEN_PRICE",
 
 }
 export default _const;

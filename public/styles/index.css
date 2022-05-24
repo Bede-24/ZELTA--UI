@@ -89,4 +89,47 @@ html {
         justify-content: center;
         align-items: center;
         text-align: center;
-      }
+}
+
+.icon-info{
+        background-color: rgb(77, 184, 77);
+        display: flex;
+        width: 75px;
+        height: 75px;
+    
+        border-radius: 100px;
+        margin: 0 auto;
+        background: #00c52c;
+        color: #005f15;
+    
+        font-size: 30px;
+        font-weight: 1000;
+        padding: 10px;
+    
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+}
+
+.empty-data { color: #515184; }
+.bg-success { background-color: #00c52c !important; }
+.bg-warning { background-color: #FE9431; }
+.bg-danger { background-color: #e42c0b; }
+
+.text-light { color: #f8f9fa ; }
+.text-dark { color: #080808 ; }
+.text-success { color: #00c52c !important; }
+.text-danger { color: #e42c0b;}
+
+.badge {
+    display: inline-block;
+    padding: 0.4em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

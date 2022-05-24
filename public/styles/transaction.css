@@ -1,0 +1,89 @@
+.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.transaction-container{
+    background-color: #fcf6f6;
+    padding: 20px;
+    border-radius: 7px;
+    margin: 10px 10px 30px 10px;
+    width: 45%;
+}
+.card-title {
+    font-size: 18px;
+    /* margin-bottom: 20px; */
+    color: #2a2974;
+    font-weight: 600;
+    padding-bottom: 5px ;
+}
+.card-body {
+    padding: 5px;
+}
+.list-unstyled{
+    padding-left: 0px;
+    list-style: none;
+    /* background-color: chartreuse; */
+}
+.media {
+    display: flex;
+    /* align-items: flex-start; */
+}
+.sold-thumb {
+    /* background: #E82753; */
+    color: #fff;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transaction-widget ul li {
+    padding: 18px 15px;
+    align-items: center;
+    border-top: 1px solid #D6D5FA;
+    list-style: none;
+
+    display: flex;
+    justify-content: space-around;
+}
+.transaction-address{
+    color: #121158;
+    font-weight: 700;
+}
+span .crypto-icon{
+    margin: 0;
+}
+
+@media screen and (max-width: 1300px){
+    .transaction-container{
+        width: 80%;
+    }
+ 
+}
+@media screen and (max-width: 900px){
+    .transaction-container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 800px){
+    .transaction-container {
+        width: 95%;
+    }
+    .transaction-address{
+        font-size: 0px;
+        max-width: 0px;
+    }
+    .sold-thumb, .badge, span .crypto-icon, .transaction-amount:first-child {
+        margin-right: 15px;
+    }
+    .transaction-amount{
+        font-size: 12px;
+    }.transaction-widget ul li {
+        padding: 18px 5px;
+    }
+
+
+}

@@ -3,6 +3,7 @@ import Layout from './layout/Layout'
 import TopBar from './TopBar'
 import Monies from './PersonalMonies'
 import SavingsTab from './SavingsTab'
+import TransactionTab from './transactions/TransactionsTab'
 import { useDispatch, useSelector } from "react-redux";
 
 function Personal(){
@@ -20,6 +21,7 @@ function Personal(){
                 <TopBar />
                 <Monies />
                 <SavingsTab />
+                < TransactionTab/>
             </div>    
         </Layout>
     )

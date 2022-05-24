@@ -42,7 +42,7 @@ function FlexibleDeposit(){
                             <InputNumber
                                 value={amount}
                                 required
-                                label="Stake Amount"
+                                label="Stake Amount in USD"
                                 onChange={(e : any)  => setamount(e) }
                             />
                         </div>

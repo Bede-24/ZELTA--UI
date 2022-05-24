@@ -43,7 +43,7 @@ function FlexibleWithdrawal(){
                             <InputNumber
                                 value={amount}
                                 required
-                                label="Withdrawal Amount"
+                                label="Withdrawal Amount in Usd"
                                 onChange={(e : any)  => setamount(e) }
                             />
                         </div>
