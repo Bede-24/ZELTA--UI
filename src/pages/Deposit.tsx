@@ -42,7 +42,7 @@ function FlexibleDeposit(){
         console.log(tokenPrice, depositAmountInZelta, minimumTokendepostitInUSD)
 
         if(depositAmountInZelta < 5000){
-            let message = `deposit has to be more than 5,000 Zelta Tokens ( $${minimumTokendepostiInUSD} )`
+            let message = `deposit has to be more than 5,000 Zelta Tokens ( $${minimumTokendepostitInUSD} )`
             toast.error(message)
             setvisible(false)
         }
