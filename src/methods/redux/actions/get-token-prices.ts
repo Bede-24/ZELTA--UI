@@ -11,7 +11,6 @@ function getCryptoPrices() {
 
     try {
 
-      console.log('i dey get price')
       api.get(`/admin/get-token-price`)
           .then((res : any) => {
               //dispatch this action that triggers the route to admin dashboard if res.status == 200

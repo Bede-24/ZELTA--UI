@@ -25,7 +25,6 @@ function Layout(props: Props){
     useEffect(() =>{
     
         const userId = cookies.getUserId()
-        console.log(userId, 'user id is consoled')
         if(userId  !== '' ){
             const address = cookies.get('address')
             dispatch({ type: _const.WALLET_CONNECTED, payload: true})

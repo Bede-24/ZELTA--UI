@@ -15,7 +15,7 @@ function login() {
         if(id){
           api.get(`/user/user-balance/${id}`)
           .then((res : any) => {
-                console.log(res)
+               
 
                 //dispatch this action that triggers the route to admin dashboard if res.status == 200
                 if(res.status === 200){
@@ -31,7 +31,7 @@ function login() {
           })
         }
         else{
-          toast.info('sPlease connect your wallet')
+          toast.info('Please connect your wallet')
         }
         
     }

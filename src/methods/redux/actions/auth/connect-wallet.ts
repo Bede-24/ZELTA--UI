@@ -18,7 +18,6 @@ function connectWallet(data : Data) {
       console.log(data, 'BNBAddress is logged')
       api.post(`/authentication/connectwallet`, data )
         .then((res : any) => {
-          console.log(res)
           //dispatch this action that triggers the route to admin dashboard if res.status == 200
           if(res.status === 200){
             //store jwt token in browser cookie
@@ -34,7 +33,7 @@ function connectWallet(data : Data) {
           }   
       })
       .catch((err) => {
-        console.log(err.response.data.message)
+        console.log(err.response)
         if(err.response){
            toast.error(`${err.response.data.message}`)
           }
