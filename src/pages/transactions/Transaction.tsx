@@ -23,37 +23,37 @@ function Transaction(){
         dispatch(getWithdrawalTransaction());
     }, [])
   
-const array = [
-    {
-        id : '60c8e09726325233dc8af84b',
-        status : "pending",
-        amount : 0.06,
-        coin : "BTC",
-        cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
-        // createdAt : 2021-06-11T17:39:56.358+00:00,
+// const array = [
+//     {
+//         id : '60c8e09726325233dc8af84b',
+//         status : "pending",
+//         amount : 0.06,
+//         coin : "BTC",
+//         cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
+//         // createdAt : 2021-06-11T17:39:56.358+00:00,
 
-    },
-    {
-        id : '60c8e09726325233dc8af84b',
-        status : "declined",
-        amount : 0.06,
-        coin : "BNB",
-        cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
-    },
-    {
-        id : '60c8e09726325233dc8af84b',
-        status : "completed",
-        amount : 0.06,
-        coin : "BNB",
-        cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
-    }
-]
+//     },
+//     {
+//         id : '60c8e09726325233dc8af84b',
+//         status : "declined",
+//         amount : 0.06,
+//         coin : "BNB",
+//         cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
+//     },
+//     {
+//         id : '60c8e09726325233dc8af84b',
+//         status : "completed",
+//         amount : 0.06,
+//         coin : "BNB",
+//         cryptoAddress : "bc1q7lfnxgh3e9ny7s075cczknr6ml4ldn2z6l8uyp",
+//     }
+// ]
     return (     
         <Layout>
             <div>
                 <div className="display-flex">
-                    <DepositTransaction  data={array}/>
-                    <WithdrawalTransaction data={array} />
+                    <DepositTransaction  data={depositTransactions}/>
+                    <WithdrawalTransaction data={withdrawalTransaction} />
                 </div>
             </div>
              
