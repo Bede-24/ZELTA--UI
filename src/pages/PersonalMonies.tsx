@@ -15,7 +15,6 @@ function PersonalMonies(){
     const balance = useSelector((state : any) => state.users.balance )
     const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
 
-
     useEffect(() =>{
         dispatch(getuserbalance())
         dispatch(gettokenprice());

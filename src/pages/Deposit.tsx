@@ -1,8 +1,8 @@
-import React, { ReactChild, ReactNode, useState } from "react";
+import React, { ReactChild, ReactNode, useEffect, useState } from "react";
 import Button from "./components/Button";
 import Modal from './components/Modal'
-// import flexibledeposit from '../../methods/redux/actions/individual/flexible-deposit'
-import { useDispatch } from "react-redux";
+import gettokenprice from '../methods/redux/actions/get-token-prices'
+import { useDispatch, useSelector } from "react-redux";
 // import InputNumber from "./components/InputNumber";
 import Input from "./components/Input";
 import commas from "./components/commas";
@@ -15,6 +15,11 @@ import deposit from '../methods/redux/actions/recieve/deposit'
 function FlexibleDeposit(){
 
     const dispatch = useDispatch();
+
+    const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
+
+
+
     
     const [visible, setvisible ] = useState(false)
     const [secondVisible, setSecondVisible ] = useState(false)
@@ -24,17 +29,36 @@ function FlexibleDeposit(){
     function submitDepostForm(e: any) {
         e.preventDefault();
 
-         const data ={ amount : Number(depositamount)}
-        dispatch(deposit(data));
-        setdepositamount(0);
-        setSecondVisible(false);
+            const data ={ amount : Number(depositamount)}
+            dispatch(deposit(data));
+            setdepositamount(0);
+            setSecondVisible(false);
+        
+    }
+    function checkDepositAmount(){
+        let depositAmountInZelta = Number(depositamount)/tokenPrice;
+        let minimumTokendepostiInUSD = 5000 * tokenPrice;
+
+        console.log(tokenPrice, depositAmountInZelta, minimumTokendepostiInUSD)
+
+        if(depositAmountInZelta < 5000){
+            let message = `deposit has to be more than 5,000 Zelta Tokens ( $${minimumTokendepostiInUSD} )`
+            toast.error(message)
+            setvisible(false)
+        }
+        else{
+            setvisible(false)
+            setSecondVisible(true)
+        }
     }
     async function copyAddress(e : any){
         // e.preventDefault();
         await navigator.clipboard.writeText(cryptoAddressReturner());
         toast.success('address copied successfully')
     }
-
+    useEffect(() =>{
+        dispatch(gettokenprice());
+    }, [])
     return(
         <div>
             <Button 
@@ -57,8 +81,8 @@ function FlexibleDeposit(){
                         </div>
                         <div className="mt5 flex justify-space-around">
                             <Button block onClick={() => {
-                                setvisible(false)
-                                setSecondVisible(true)}}>
+                                    checkDepositAmount()
+                                }}>
                                 Next
                             </Button>
                         </div>
