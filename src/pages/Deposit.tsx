@@ -3,7 +3,7 @@ import Button from "./components/Button";
 import Modal from './components/Modal'
 // import flexibledeposit from '../../methods/redux/actions/individual/flexible-deposit'
 import { useDispatch } from "react-redux";
-import InputNumber from "./components/InputNumber";
+// import InputNumber from "./components/InputNumber";
 import Input from "./components/Input";
 import commas from "./components/commas";
 import {ToastContainer,toast} from "react-toastify";
@@ -24,7 +24,7 @@ function FlexibleDeposit(){
     function submitDepostForm(e: any) {
         e.preventDefault();
 
-         const data ={ amount : depositamount}
+         const data ={ amount : Number(depositamount)}
         dispatch(deposit(data));
         setdepositamount(0);
         setSecondVisible(false);
@@ -48,11 +48,11 @@ function FlexibleDeposit(){
             <Modal visible={visible} onCancel={() => setvisible(false)} title='Deposit To Your Staking Wallet'>
                 <div>
                         <div className="mt2">
-                            <InputNumber
+                            <Input
                                 value={depositamount}
                                 required
                                 label="Deposit Amount in USD"
-                                onChange={(e : any)  => setdepositamount(e) }
+                                onChange={(e : any)  => setdepositamount(e.target.value) }
                             />
                         </div>
                         <div className="mt5 flex justify-space-around">
@@ -79,10 +79,13 @@ function FlexibleDeposit(){
                             </Button>
                         </div>
                     <form onSubmit={submitDepostForm}>
-                        
                         <div className="mt5 flex justify-space-around">
+                        <p>please click this button only after you have sent BNB to the address above</p>
+                        </div>
+                        
+                        <div className=" flex justify-space-around">
                             <Button block htmlType="submit">
-                                Deposit
+                                I have Deposited BNB
                             </Button>
                         </div>
                     </form>

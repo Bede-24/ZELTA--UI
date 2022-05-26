@@ -3,7 +3,7 @@ import Button from "./components/Button";
 import Modal from './components/Modal'
 // import flexibledeposit from '../../methods/redux/actions/individual/flexible-deposit'
 import { useDispatch } from "react-redux";
-import InputNumber from "./components/InputNumber";
+// import InputNumber from "./components/InputNumber";
 import Input from "./components/Input";
 import stake from '../methods/redux/actions/stake'
 
@@ -18,7 +18,7 @@ function FlexibleDeposit(){
 
     function submitDepostForm(e: any) {
         e.preventDefault();
-        const data = {amount}
+        const data = {amount : Number(amount)}
         dispatch(stake(data));
         setamount(0);
         setvisible(false);
@@ -39,11 +39,11 @@ function FlexibleDeposit(){
                 <div>
                     <form onSubmit={submitDepostForm}>
                         <div className="mt2">
-                            <InputNumber
+                            <Input
                                 value={amount}
                                 required
                                 label="Stake Amount in USD"
-                                onChange={(e : any)  => setamount(e) }
+                                onChange={(e : any)  => setamount(e.target.value) }
                             />
                         </div>
                         <div className="mt5 flex justify-space-around">

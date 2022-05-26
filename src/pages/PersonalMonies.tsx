@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactNode, useEffect, useState } from "react";
+import React, {useEffect } from "react";
 import ToolTip from './components/Tooltip'
 // import getflexibledepositrecordforcurrentuser from '../../methods/redux/actions/individual/get-flexible-deposit-record'
 import getuserbalance from '../methods/redux/actions/get-user-balance'
@@ -6,11 +6,6 @@ import gettokenprice from '../methods/redux/actions/get-token-prices'
 import { useDispatch, useSelector } from "react-redux";
 import AmountsComplete from './components/AmountsComplete'
 import commas from "../methods/utils/commas";
-import _const from "../methods/_const";
-import web3 from 'web3';
-import InputNumber from "./components/InputNumber";
-import Button from "./components/Button";
-// import { fromBigVenusNumber } from "../../methods/utils/bignumber-converter";
 
 
 function PersonalMonies(){
@@ -19,28 +14,12 @@ function PersonalMonies(){
 
     const balance = useSelector((state : any) => state.users.balance )
     const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
-  console.log(tokenPrice, 'balance is logged')
-
-  const [priceamount, setpriceamount] = useState(0)
-        
-
-    // const [records, setRecords] = useState({
-    //     walletBalance: 0,
-    //     APY: 0,
-    //     stakedAmount: 0
-    //   });
 
 
     useEffect(() =>{
         dispatch(getuserbalance())
         dispatch(gettokenprice());
     }, [])
-
- 
-// function submitsetorm(e: any){
-//     e.preventDefault();
-//     dispatch(gettokenprice());
-// }
 
     return(
         <div className="monies">

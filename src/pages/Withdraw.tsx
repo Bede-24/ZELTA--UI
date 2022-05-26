@@ -3,7 +3,7 @@ import Button from "./components/Button";
 import Modal from './components/Modal'
 // import flexibledeposit from '../../methods/redux/actions/individual/flexible-deposit'
 import { useDispatch } from "react-redux";
-import InputNumber from "./components/InputNumber";
+// import InputNumber from "./components/InputNumber";
 import Input from "./components/Input";
 import withdraw from "../methods/redux/actions/send/withdraw";
 
@@ -19,7 +19,7 @@ function FlexibleWithdrawal(){
 
     function submitDepostForm(e: any) {
         e.preventDefault();
-        const data = { amount, cryptoAddress}
+        const data = { amount : Number(amount), cryptoAddress}
         dispatch(withdraw(data));
         setamount(0);
         setvisible(false);
@@ -40,11 +40,11 @@ function FlexibleWithdrawal(){
                 <div>
                     <form onSubmit={submitDepostForm}>
                         <div className="mt2">
-                            <InputNumber
+                            <Input
                                 value={amount}
                                 required
                                 label="Withdrawal Amount in Usd"
-                                onChange={(e : any)  => setamount(e) }
+                                onChange={(e : any)  => setamount(e.target.value) }
                             />
                         </div>
                         <div className="mt2">
