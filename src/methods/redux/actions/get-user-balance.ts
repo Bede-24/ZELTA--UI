@@ -12,7 +12,8 @@ function login() {
 
         const id = cookie.getUserId()
 
-        api.get(`/user/user-balance/${id}`)
+        if(id){
+          api.get(`/user/user-balance/${id}`)
           .then((res : any) => {
                 console.log(res)
 
@@ -28,6 +29,11 @@ function login() {
               console.log(err.response)
               toast.error('something happened, refresh your browser')
           })
+        }
+        else{
+          toast.info('sPlease connect your wallet')
+        }
+        
     }
     
     catch (err) {
