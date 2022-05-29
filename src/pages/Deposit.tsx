@@ -28,22 +28,20 @@ function FlexibleDeposit(){
 
     function submitDepostForm(e: any) {
         e.preventDefault();
-
-            const data ={ amount : Number(depositamount)}
+            let amountInUSD = tokenPrice * depositamount;
+            const data ={ amount : Number(amountInUSD)}
             dispatch(deposit(data));
             setdepositamount(0);
             setSecondVisible(false);
         
     }
     function checkDepositAmount(){
-        let depositAmountInZelta = Number(depositamount)/tokenPrice;
+        // let depositAmountInZelta = Number(depositamount)/tokenPrice;
         let minimumTokendepostitInUSD = 5000 * tokenPrice;
 
-        console.log(tokenPrice, depositAmountInZelta, minimumTokendepostitInUSD)
-
-        if(depositAmountInZelta < 5000){
-            let message = `deposit has to be more than 5,000 Zelta Tokens ( $${minimumTokendepostitInUSD} )`
-            toast.error(message)
+        if(depositamount < 5000){
+            let message = `deposit has to be more than 5,000 ZLT ( $${minimumTokendepostitInUSD} )`
+            toast.info(message)
             setvisible(false)
         }
         else{
@@ -75,7 +73,7 @@ function FlexibleDeposit(){
                             <Input
                                 value={depositamount}
                                 required
-                                label="Deposit Amount in USD"
+                                label="Deposit Amount in ZLT"
                                 onChange={(e : any)  => setdepositamount(e.target.value) }
                             />
                         </div>
@@ -91,8 +89,8 @@ function FlexibleDeposit(){
             <Modal visible={secondVisible} onCancel={() => setSecondVisible(false)} title='Deposit To staking wallet'>
                 <div>
                     <div className="mt2">
-                            <p>To complete your deposit, you are to send exacly ${commas(depositamount).slice(0,-5)} worth
-                             of ZLT to the Staking Pool Contract address below.</p>
+                            <p>To complete your deposit, you are to send exacly {commas(depositamount).slice(0,-5)} ZLT
+                            to the Staking Pool Contract address below.</p>
                         </div>
                         <div className="mt2">
                             <p>{cryptoAddressReturner()}</p>
