@@ -15,25 +15,21 @@ function connectWallet(data : Data) {
 
     try {
 
-      console.log(data, 'BNBAddress is logged')
+      // console.log(data, 'BNBAddress is logged')
       api.post(`/authentication/connectwallet`, data )
-        .then((res : any) => {
-          //dispatch this action that triggers the route to admin dashboard if res.status == 200
+      .then((res : any) => {
           if(res.status === 200){
-            //store jwt token in browser cookie
-            // cookie.set('JWT', res.data.data.JWT)
+            //store userid and address in browser cookie
             cookie.set('userId', res.data.data._id)
             cookie.set('address', res.data.data.walletAddress)
 
             toast.success('wallet connected successful');
-            // dispatch({ type: _const.GET_USER_BY_ID, payload: res.data.data})
             dispatch({ type: _const.WALLET_CONNECTED, payload: true})
             dispatch({ type: _const.ADDRESS, payload: res.data.data.walletAddress})
             dispatch(getuserbalance());
           }   
       })
       .catch((err) => {
-        console.log(err.response)
         if(err.response){
            toast.error(`${err.response.data.message}`)
           }

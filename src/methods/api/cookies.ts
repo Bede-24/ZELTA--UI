@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 // ["User", JWT]
 const set = (name : any, value : any) => {
   // console.log(name, value);
-  // Cookies.set(name, value);
+  Cookies.set(name, value);
 };
 const remove = (name : any) => {
   console.log(name)

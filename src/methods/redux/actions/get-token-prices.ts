@@ -15,7 +15,7 @@ function getCryptoPrices() {
           .then((res : any) => {
               //dispatch this action that triggers the route to admin dashboard if res.status == 200
               if(res.status === 200){
-                console.log(res)
+                console.log(res.data.data.PriceInUSD)
                   dispatch({ type: _const.ZELTA_TOKEN_PRICE, payload : res.data.data.PriceInUSD })
               }   
           })
@@ -23,21 +23,6 @@ function getCryptoPrices() {
               // console.log(err.response)
               toast.error('something happened, refresh your browser')
           })
-
-          // console.log(priceamount, 'price amount')
-      // const data = {price : priceamount}
-      // api.post(`/admin/set-token-price`, data)
-      // .then((res : any) => {
-      //     //dispatch this action that triggers the route to admin dashboard if res.status == 200
-      //     if(res.status === 200){
-      //       console.log(res)
-      //         // dispatch({ type: _const.ZELTA_TOKEN_PRICE, payload : res.data.data })
-      //     }   
-      // })
-      // .catch((err) => {
-      //     console.log(err.response)
-      //     toast.error('something happened, refresh your browser')
-      // })
   }
   catch (err) {
 
