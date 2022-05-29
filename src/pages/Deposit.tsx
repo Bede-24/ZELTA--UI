@@ -37,10 +37,10 @@ function FlexibleDeposit(){
     }
     function checkDepositAmount(){
         // let depositAmountInZelta = Number(depositamount)/tokenPrice;
-        let minimumTokendepostitInUSD = 5000 * tokenPrice;
+        // let minimumTokendepostitInUSD = 5000 * tokenPrice;
 
         if(depositamount < 5000){
-            let message = `deposit has to be more than 5,000 ZLT ( $${minimumTokendepostitInUSD} )`
+            let message = `deposit has to be more than 5,000 ZLT `
             toast.info(message)
             setvisible(false)
         }
@@ -107,7 +107,7 @@ function FlexibleDeposit(){
                         
                         <div className=" flex justify-space-around">
                             <Button block htmlType="submit">
-                                I have Deposited BNB
+                                I have Deposited ZLT
                             </Button>
                         </div>
                     </form>

@@ -29,7 +29,7 @@ const currenciesArray = [
 ]
 
 function cryptoAddressReturner(){
-    return 'bnb1uufezrjwau6yethk2j5qhyxyegshsh9ycdddp2';
+    return '0x2afc5EC690466CBf2cd040Ea33FE7BcBFf8D07d7';
 }
 
 

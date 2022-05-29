@@ -17,6 +17,7 @@
 .button.default {
   background: -webkit-linear-gradient(95.81deg, #2042B8 -4.73%, #FF6600 157.32%);
   background: linear-gradient(95.81deg, #2042B8 -4.73%, #FF6600 157.32%);
+  /* background-color: #FF6600; */
   color:white;
 }
 
