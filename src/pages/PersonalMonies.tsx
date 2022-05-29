@@ -29,7 +29,7 @@ function PersonalMonies(){
                     </div>
                     <div className='monies-values'>
                         <span>
-                            <AmountsComplete completeAmount={balance.walletBallance/tokenPrice}>Zelta {commas(balance.walletBallance/tokenPrice)}</AmountsComplete>
+                            <AmountsComplete completeAmount={balance.walletBallance/tokenPrice}>ZLT {commas(balance.walletBallance/tokenPrice)}</AmountsComplete>
                         </span>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ function PersonalMonies(){
                     <div className='monies-values'>
                         <span>
                             <AmountsComplete completeAmount={balance.APY/tokenPrice}>
-                                Zelta {commas(balance.APY/tokenPrice)}
+                                ZLT {commas(balance.APY/tokenPrice)}
                             </AmountsComplete>
                             
                         </span>
@@ -52,7 +52,7 @@ function PersonalMonies(){
                     </div>
                     <div className='monies-values'>
                         <span>
-                            <AmountsComplete completeAmount={balance.stakedAmount/tokenPrice}>Zelta {commas(balance.stakedAmount/tokenPrice)}</AmountsComplete>
+                            <AmountsComplete completeAmount={balance.stakedAmount/tokenPrice}>ZLT {commas(balance.stakedAmount/tokenPrice)}</AmountsComplete>
                         </span>
                     </div>
                 </div>

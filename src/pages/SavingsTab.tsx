@@ -17,7 +17,7 @@ function SavingsTab(){
             <div className='share-balance flex  justify-space-around '>
                 <div className='flex mt3' style={{marginLeft : '-20px'}}> 
                     <span><img src={ZeltaLogo} alt="Personal Icon" height={35}/></span> 
-                    <div className="dai-label">ZELTA</div>
+                    <div className="dai-label">ZLT</div>
                     <div  className='dai-stable-coin'>
                         <br />
                         Zelta Token
