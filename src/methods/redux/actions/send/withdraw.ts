@@ -6,7 +6,7 @@ import {  toast } from 'react-toastify';
 type Data = {
 
     amount: Number
-    cryptoAddress : string
+    // cryptoAddress : string
 }
 
 function Withdraw(props : Data) {
@@ -21,17 +21,22 @@ function Withdraw(props : Data) {
           userId,
           transactionType : 'withdraw'
         }
-
-        api.post(`/user/withdraw/${userId}`, data)
-            .then((result: any) => {
-                let message = result.data.message
-                toast.success(`${message}`)
-                dispatch({ type: _const.DEPOSIT_SUCCESSFUL, payload: true})
-            })
-            .catch((err: any ) => {
-              if(err.response){ toast.error(`${err.response.data.message}`) }
-              else{ toast.error('something occured try again')}
-            });
+        if(userId){
+          api.post(`/user/withdraw/${userId}`, data)
+          .then((result: any) => {
+              let message = result.data.message
+              toast.success(`${message}`)
+              dispatch({ type: _const.DEPOSIT_SUCCESSFUL, payload: true})
+          })
+          .catch((err: any ) => {
+            if(err.response){ toast.error(`${err.response.data.message}`) }
+            else{ toast.error('something occured try again')}
+          });
+        }
+        else{
+          toast.info("Please connect your wallet")
+        }
+        
     }
     catch (err) {
       throw err;

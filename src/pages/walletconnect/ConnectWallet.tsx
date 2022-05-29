@@ -58,7 +58,7 @@ function ConnectWallet(){
                 <div>
                     <form onSubmit={submitconnectWallet}>
                         <div className="mt2">
-                            <p>Please Enter Your BNB wallet address to connect your wallet.</p>
+                            <p>Please Enter Your ZLT wallet address to connect your wallet.</p>
                         </div>
                         <div className="mt2">
                             <Input

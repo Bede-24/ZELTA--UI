@@ -15,7 +15,6 @@ function getCryptoPrices() {
           .then((res : any) => {
               //dispatch this action that triggers the route to admin dashboard if res.status == 200
               if(res.status === 200){
-                console.log(res.data.data.PriceInUSD)
                   dispatch({ type: _const.ZELTA_TOKEN_PRICE, payload : res.data.data.PriceInUSD })
               }   
           })

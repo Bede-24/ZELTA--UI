@@ -9,9 +9,7 @@ function login() {
   return async (dispatch: Function) => {
 
     try {
-
         const id = cookie.getUserId()
-        console.log(id)
 
         if(id){
           api.get(`/user/user-balance/${id}`)

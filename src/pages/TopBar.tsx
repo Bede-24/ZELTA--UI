@@ -9,7 +9,7 @@ function TopBar(){
     return(
             <div className="layout-top">
                 <div className="flex justify-space-around pt2">
-                    <div className='title capitalize' >Zelta Stake</div>
+                    <div className='title capitalize' >ZELTAstake</div>
                     <div className="w5"></div>
                     <WalletConnect />
                 </div>

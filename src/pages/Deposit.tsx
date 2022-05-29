@@ -92,7 +92,7 @@ function FlexibleDeposit(){
                 <div>
                     <div className="mt2">
                             <p>To complete your deposit, you are to send exacly ${commas(depositamount).slice(0,-5)} worth
-                             of BNB to the BNB address below.</p>
+                             of ZLT to the Staking Pool Contract address below.</p>
                         </div>
                         <div className="mt2">
                             <p>{cryptoAddressReturner()}</p>
@@ -104,7 +104,7 @@ function FlexibleDeposit(){
                         </div>
                     <form onSubmit={submitDepostForm}>
                         <div className="mt5 flex justify-space-around">
-                        <p>please click this button only after you have sent BNB to the address above</p>
+                        <p>please click this button only after you have sent ZLT to the Staking Pool Contract address above</p>
                         </div>
                         
                         <div className=" flex justify-space-around">

@@ -26,15 +26,21 @@ function deposit(props : Data) {
           cryptoAddress,
           transactionType : 'deposit'
         }
-        api.post(`/user/deposit/${userId}`, data)
-            .then((result: any) => {
-                toast.success(`${result.data.message}`)
-                // dispatch({ type: _const.DEPOSIT_SUCCESSFUL, payload: true})
-            })
-            .catch((err: any ) => {
-              if(err.response){ toast.error(`${err.response.data.message}`) }
-              else{ toast.error('something occured try again. check your internet connection')}
-            });
+        if(userId){
+          api.post(`/user/deposit/${userId}`, data)
+          .then((result: any) => {
+              toast.success(`${result.data.message}`)
+              // dispatch({ type: _const.DEPOSIT_SUCCESSFUL, payload: true})
+          })
+          .catch((err: any ) => {
+            if(err.response){ toast.error(`${err.response.data.message}`) }
+            else{ toast.error('something occured try again. check your internet connection')}
+          });
+        }
+        else{
+          toast.info("Please connect your wallet")
+        }
+        
     }
     catch (err) {
       throw err;
