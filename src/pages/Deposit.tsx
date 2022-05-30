@@ -23,7 +23,7 @@ function FlexibleDeposit(){
     
     const [visible, setvisible ] = useState(false)
     const [secondVisible, setSecondVisible ] = useState(false)
-    const [depositamount, setdepositamount] = useState(0);
+    const [depositamount, setdepositamount] : any = useState();
  
 
     function submitDepostForm(e: any) {
@@ -69,7 +69,7 @@ function FlexibleDeposit(){
             </Button>
             <Modal visible={visible} onCancel={() => setvisible(false)} title='Deposit To Your Staking Wallet'>
                 <div>
-                        <div className="mt2">
+                        <div className="mt5">
                             <Input
                                 value={depositamount}
                                 required

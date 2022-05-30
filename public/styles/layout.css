@@ -1,6 +1,7 @@
 .layout{
     font-family: "Fira Sans",sans-serif;
     background-color: var(--backgroundColor);
+    height: 100vh;
 }
 
 .layout-top{

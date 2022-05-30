@@ -21,7 +21,7 @@ function Personal(){
                 <TopBar />
                 <Monies />
                 <SavingsTab />
-                < TransactionTab/>
+                <TransactionTab/>
             </div>    
         </Layout>
     )

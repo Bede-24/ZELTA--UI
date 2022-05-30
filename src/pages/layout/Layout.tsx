@@ -32,7 +32,7 @@ function Layout(props: Props){
         }
      })
     return (
-        <div >
+        <div className='layout'>
             <div className='layout-body'> 
                  {props.children}
             </div>

@@ -13,7 +13,7 @@ function FlexibleDeposit(){
     const dispatch = useDispatch();
     
     const [visible, setvisible ] = useState(false)
-    const [amount, setamount] = useState(0);
+    const [amount, setamount] :any = useState();
  
 
     function submitDepostForm(e: any) {
@@ -42,7 +42,7 @@ function FlexibleDeposit(){
                             <Input
                                 value={amount}
                                 required
-                                label="Stake Amount in USD"
+                                label="Stake Amount in ZLT"
                                 onChange={(e : any)  => setamount(e.target.value) }
                             />
                         </div>

@@ -16,7 +16,7 @@ function FlexibleWithdrawal(){
     const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
     
     const [visible, setvisible ] = useState(false)
-    const [amount, setamount] = useState(0);
+    const [amount, setamount] : any = useState();
     // const [cryptoAddress, setaddress] = useState('');
 
 
@@ -43,7 +43,7 @@ function FlexibleWithdrawal(){
             <Modal visible={visible} onCancel={() => setvisible(false)} title='Withdraw Savings'>
                 <div>
                     <form onSubmit={submitDepostForm}>
-                        <div className="mt2">
+                        <div className="mt5">
                             <Input
                                 value={amount}
                                 required
