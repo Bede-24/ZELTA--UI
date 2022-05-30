@@ -1,8 +1,19 @@
 import moment from 'moment';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import commas from '../../methods/utils/commas';
 // import CryptoIconMapper from '../cryptoIconMapper'
+import gettokenprice from '../../methods/redux/actions/get-token-prices'
 
 function DepositTransaction(props: any) {
+
+  const dispatch = useDispatch();
+
+  const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
+  
+  useEffect(() =>{
+    dispatch(gettokenprice());
+}, [])
 
   function transactionStatusBadge(status :any){
     switch(status){
@@ -15,19 +26,9 @@ function DepositTransaction(props: any) {
     }
   }
 
-  function addressSlice(address : any){
-    if(address.length < 12) return address;
-
-    const firstpart = address.slice(0,4);
-    const secondpart = address.slice(address.length - 4)
-
-    return `${firstpart}...${secondpart}`;
-
-  }
-  
   return ( 
     <div className="transaction-container">
-      <h4 className='card-title'>Deposit</h4>
+      <h4 className='card-title'>Deposit Transactions</h4>
       <div className="card-body pt0">
           <div className='transaction-widget'>
             <div style={{textAlign : 'center', backgroundColor : 'black'}}></div>
@@ -40,8 +41,8 @@ function DepositTransaction(props: any) {
                       {/* <span className='transaction-amount bold'> {transaction.coinSymbol} </span> */}
                       {transactionStatusBadge(transaction.status)}  
                       {/* <span className='transaction-address'> {addressSlice(transaction.cryptoAddress)} </span> */}
-                      <span className="transaction-amount text-success bold"> +{commas(transaction.amount)} USD</span>
-                      <span className="transaction-amount  bold"> {moment(transaction.createdAt).format('l') }</span>
+                      <span className="transaction-amount text-success bold"> +{commas(transaction.amount/tokenPrice)} ZLT</span>
+                      <span className="transaction-date  bold"> {moment(transaction.createdAt).format('l') }</span>
                     </li>
                   )
                 })

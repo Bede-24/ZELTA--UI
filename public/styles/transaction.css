@@ -4,7 +4,7 @@
     justify-content: space-around;
 }
 .transaction-container{
-    background-color: #fcf6f6;
+    background-color: var(--primaryColor);
     padding: 20px;
     border-radius: 7px;
     margin: 10px 10px 30px 10px;
@@ -13,7 +13,7 @@
 .card-title {
     font-size: 18px;
     /* margin-bottom: 20px; */
-    color: #2a2974;
+    color: #f3c600;
     font-weight: 600;
     padding-bottom: 5px ;
 }
@@ -29,28 +29,20 @@
     display: flex;
     /* align-items: flex-start; */
 }
-.sold-thumb {
-    /* background: #E82753; */
-    color: #fff;
-    border-radius: 5px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .transaction-widget ul li {
     padding: 18px 15px;
     align-items: center;
-    border-top: 1px solid #D6D5FA;
+    border-top: 1px solid var(--backgroundColor);
     list-style: none;
-
     display: flex;
     justify-content: space-around;
 }
+.transaction-date{
+    color: var(--fontColor);
+}
 .transaction-address{
-    color: #121158;
+    color: var(--fontColor);
     font-weight: 700;
 }
 span .crypto-icon{
@@ -73,15 +65,19 @@ span .crypto-icon{
         width: 95%;
     }
     .transaction-address{
-        font-size: 0px;
-        max-width: 0px;
+        font-size: 14px;
+        /* max-width: 0px; */
     }
     .sold-thumb, .badge, span .crypto-icon, .transaction-amount:first-child {
         margin-right: 15px;
     }
     .transaction-amount{
-        font-size: 12px;
-    }.transaction-widget ul li {
+        font-size: 14px;
+    }
+    .transaction-date{
+        font-size: 14px;
+    }
+    .transaction-widget ul li {
         padding: 18px 5px;
     }
 

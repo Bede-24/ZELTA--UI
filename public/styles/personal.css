@@ -1,24 +1,21 @@
-.personal-protocol-select{ 
-  background-color: #F6F6F6;
-  border-radius: 10px;
-  width: fit-content;
-  margin-left: 110px;
+.dashboard-div{
+  background-color: var(--backgroundColor);
 }
 
 .monies {
   height: 200px;
   margin: 10px 10px 10px 10px;
-  border: 1px solid #EDEDED;
+  border: 1px solid #312a2a;
   border-radius: 4.88632px;
-  background-color: var(--primaryColor);
+  background-color: var(--backgroundColor);
 }
 
 .personal-savings-tab{
-    background-color: aquamarine;
     height: 222px;
     margin: 10px 10px 10px 10px;
     border-radius: 4.88632px;
-    background-color: var(--primaryColor);  
+    border: 1px solid #312a2a;
+    background-color: var(--backgroundColor);  
 }
 .monies-label{
   /* margin-left: -25px; */
@@ -38,7 +35,7 @@
   }
   .dai-label{
     margin-left: 5px;
-    color: #000000;
+    color: var(--fontAltColor);
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -48,15 +45,16 @@
     margin-top: 3px;
     font-weight: 500;
     font-size: 10px;
-    color: var(--fontAltColor);
+    color: var(--moniescolor);
   }
 
   .monies-values{
     font-weight: 600;
     font-size: 14px;
+    color: var(--moniescolor);
   }
   .savings-tab-values{
-    color: #2F2F2F;
+    color: var(--moniescolor);
     font-weight: 500;
     font-size: 13px;
   }

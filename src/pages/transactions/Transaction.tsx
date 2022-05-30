@@ -5,7 +5,7 @@ import DepositTransaction from './DepositTransaction';
 import WithdrawalTransaction from "./WithdrawalTransaction";
 import getDepositTransaction from '../../methods/redux/actions/transaction/get-user-deposit-transaction'
 import getWithdrawalTransaction from '../../methods/redux/actions/transaction/get-user-withdrawals'
-import Button from "../components/Button";
+import Topbar from "../TopBar";
 
 function Transaction(){
 
@@ -50,7 +50,8 @@ function Transaction(){
 // ]
     return (     
         <Layout>
-            <div>
+            <div className="dashboard-div">
+                <Topbar />
                 <div className="display-flex">
                     <DepositTransaction  data={depositTransactions}/>
                     <WithdrawalTransaction data={withdrawalTransaction} />

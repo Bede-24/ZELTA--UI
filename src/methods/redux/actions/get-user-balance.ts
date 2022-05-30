@@ -14,8 +14,6 @@ function login() {
         if(id){
           api.get(`/user/user-balance/${id}`)
           .then((res : any) => {
-               
-
                 //dispatch this action that triggers the route to admin dashboard if res.status == 200
                 if(res.status === 200){
                   dispatch({

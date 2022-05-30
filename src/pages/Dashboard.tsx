@@ -17,7 +17,7 @@ function Personal(){
     }, [])
     return(
         <Layout> 
-            <div>
+            <div className="dashboard-div">
                 <TopBar />
                 <Monies />
                 <SavingsTab />

@@ -1,9 +1,18 @@
 import moment from 'moment';
 import commas from '../../methods/utils/commas';
-// import CryptoIconMapper from '../cryptoIconMapper';
+import gettokenprice from '../../methods/redux/actions/get-token-prices'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 
 function WithdrawalTransaction(props: any) {
+  const dispatch = useDispatch();
+
+  const tokenPrice = useSelector((state : any) => state.prices.tokenPrice)
+
+  useEffect(() =>{
+    dispatch(gettokenprice());
+}, [])
 
   function transactionStatusBadge(status :any){
     switch(status){
@@ -24,7 +33,7 @@ function WithdrawalTransaction(props: any) {
   
   return ( 
     <div className="transaction-container">
-      <h4 className='card-title'>Withdrawal</h4>
+      <h4 className='card-title'>Withdrawal Transactions</h4>
       <div className="card-body pt0">
           <div className='transaction-widget'>
             <div style={{textAlign : 'center', backgroundColor : 'black'}}></div>
@@ -36,8 +45,8 @@ function WithdrawalTransaction(props: any) {
                     <li className='media' key={i}>
                       {transactionStatusBadge(transaction.status)}
                       <span className='transaction-address'> {addressSlice(transaction.cryptoAddress)} </span>
-                      <span className="transaction-amount text-danger bold"> -{commas(transaction.amount)} USD</span>
-                      <span className="transaction-amount bold"> {moment(transaction.createdAt).format('l') }</span>
+                      <span className="transaction-amount text-danger bold"> -{commas(transaction.amount/tokenPrice)} ZLT</span>
+                      <span className="transaction-date bold"> {moment(transaction.createdAt).format('l') }</span>
                     </li>
                   )
                 })

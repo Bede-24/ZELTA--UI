@@ -1,5 +1,17 @@
 html {
-        --navBackgroundColor: #FFFFFF;
+
+        --navBackgroundColor: #020101;
+        --backgroundColor: #020101;
+        --primaryColor: #383838;
+        /* --strokeColor: #F1F1F1; */
+        --buttonPrimaryColor: #FFAD33;
+        --buttonSecondaryColor: #FFFFFF;
+        --fontColor: #f4f3f3;
+        --strokeAltColor: #6D6D6D;
+        --moniescolor: #b4b3b3;
+        --fontAltColor: #e4e4e4;
+        --linearColor: linear-gradient(90deg, #2241b4, #924410);
+        /* --navBackgroundColor: #FFFFFF;
         --backgroundColor: #f1f1f0;
         --primaryColor: rgb(255, 255, 255);
         --strokeColor: #F1F1F1;
@@ -7,9 +19,13 @@ html {
         --strokeAltColor: #6D6D6D;
         --moniescolor: #797979;
         --fontAltColor: #7c7c7c;
-        --linearColor: linear-gradient(90deg, #2241b4, #924410);
+        --linearColor: linear-gradient(90deg, #2241b4, #924410); */
      
 
+}
+p{
+        color: var(--fontColor);
+        font-size: 12px;
 }
 
 .mt1 { margin-top: 10px; }

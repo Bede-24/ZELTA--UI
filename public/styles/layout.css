@@ -1,6 +1,6 @@
 .layout{
     font-family: "Fira Sans",sans-serif;
-    background-color: palegreen;
+    background-color: var(--backgroundColor);
 }
 
 .layout-top{
@@ -15,20 +15,7 @@
   height: 570px;
    
 }
-.navbar{
-  background: var(--navBackgroundColor);
-  bottom: 0;
-}
-.navbar ul{
-  margin: 0;
-  padding: 0;
-}
-.navbar li{
-  list-style-type: none;
-  list-style-type: none;
-  margin: 2vh 6vw;
-  font-size: 2vh;
-}
+
 .active{
   background: linear-gradient(90deg, #617ee6, #ec7b2f);
   -webkit-background-clip: text;
@@ -36,9 +23,8 @@
   -webkit-text-fill-color: transparent;
 }
 .title {
-  background: linear-gradient(90deg, #2241b4, #924410);
-  /* background: -webkit-linear-gradient(333.6deg, #2042B8, 100%, #FF6600 100%); */
-  /* background: linear-gradient(333.6deg, #2042B8, 53.9%, #c06224 157.96%); */
+  /* background: linear-gradient(90deg, #2241b4, #924410); */
+  background-color: #ffad33;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -54,7 +40,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    background: linear-gradient(333.6deg, #2042B8, 53.9%, #FF6600 157.96%);
+    /* background: linear-gradient(333.6deg, #2042B8, 53.9%, #FF6600 157.96%); */
     padding:1px;
     margin-bottom: 20px;
   }
@@ -64,7 +50,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: var(--primaryColor);
+    background-color: var(--buttonPrimaryColor);
     border-radius: 30px;
     cursor: pointer;
   }
@@ -73,7 +59,7 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     column-gap: 10px;
-    background-color: var(--primaryColor);
+    background-color: var(--buttonPrimaryColor);
     border-radius: 30px;
     padding:5px 10px;
     cursor: pointer;
